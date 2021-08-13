@@ -55,4 +55,23 @@ public class BalancedBracketsTest {
         BalancedBrackets.hasBalancedBrackets("sky[line]");
         assertTrue(BalancedBrackets.hasBalancedBrackets("sky[line]"));
     }
+    @Test
+    public void onlyBracketInMiddle(){
+        BalancedBrackets Value = new BalancedBrackets();
+        BalancedBrackets.hasBalancedBrackets("sky[line");
+        assertFalse(BalancedBrackets.hasBalancedBrackets("sky[line"));
+
+    }
+    @Test
+    public void withNoBalancedBrackets(){
+        BalancedBrackets Value = new BalancedBrackets();
+        BalancedBrackets.hasBalancedBrackets("[");
+        assertFalse("Condition Fails If No Balanced Brackets",  BalancedBrackets.hasBalancedBrackets("["));
+    }
+    @Test
+    public void bracketsBeforeString(){
+
+        assertTrue("Condition passes If  Balanced Brackets before String",  BalancedBrackets.hasBalancedBrackets("[]skyline"));
+    }
+
 }
